@@ -11,7 +11,12 @@ option = st.selectbox("Select data to view:", options=["Temperature", "Sky"])
 st.subheader(f"{option} for the next {days} days in the {place}")
 
 # Creating a chart now
-d, t = get_data(place, days)
-figure = px.line(x=d, y=t, labels={"x": "Date", "y": "Temperature (°C)"}, title="Temperature Trend")
-st.plotly_chart(figure)
-# Note: Actual weather data fetching and processing is not implemented in this example.
+if place:
+    d, t = get_data(place, days, option)
+
+    if option == "Temperature":
+        print("Plotting Temperature Data")
+        figure = px.line(x=d, y=t, labels={"x": "Date", "y": "Temperature (°C)"}, title="Temperature Trend")
+        st.plotly_chart(figure)
+    elif option == "Sky":
+        st.image()

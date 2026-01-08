@@ -8,3 +8,9 @@ Simple program which is displaying weather and sky conditions for any given City
 
 ### Objections:
 - to learn to display graphs and images on web page using python 
+
+## To run the app:
+install all the packages first.
+Run following command in Bash terminal: 
+
+```streamlit run main.py```
